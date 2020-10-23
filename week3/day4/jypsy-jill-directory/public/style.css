@@ -1,0 +1,43 @@
+header {
+    background-color: rgb(55, 176, 233);
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    vertical-align: middle;
+    padding-left: 50px;
+    padding: 3%;
+}
+content {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.employeeCard {
+    background-color: snow;
+    border-width: 100px;
+    border-color: black;
+    height: 60%;
+    
+}
+
+
+.h1 {
+    text-decoration-line: underline;
+    text-decoration-color: rgb(55, 176, 233);    
+}
+
+.navigation {
+    color: white;
+    background-color: transparent;
+
+}
+
+.edit-card-buttons {
+    background-color: rgb(55, 176, 233);
+    color: white;
+    height: 20px;
+    width: fit-content;
+    vertical-align: middle;
+    display: flex;
+
+    
+}
