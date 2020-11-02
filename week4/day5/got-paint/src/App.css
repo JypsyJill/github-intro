@@ -1,0 +1,44 @@
+body {
+  background-color: white;
+}
+
+h1 { 
+  font-size: 24 px;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0px;
+}
+
+header {
+  font-size: 36px;
+}
+
+.remove-button {
+  color: aqua;
+  font-size: 18px;
+  position: relative;
+  margin: 0;
+  left: 16vw;
+  display: inline-block;
+}
+
+.title-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 50vw;
+}
+
+.watercolor {
+  width: 20 vw;
+  border: 5px;
+  background-color: azure;
+  color: blue;
+  padding: 20px;
+  margin: 20px;
+  box-sizing: border-box;
+}
