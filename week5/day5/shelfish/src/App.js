@@ -35,6 +35,10 @@ class App extends Component {
     this.setState({ product: newProducts, name: '', price: +1 , imageURL: '' });
   }
 
+  cancelAdd() {
+    this.setState({ name : '', price: 0, imageURL: ''});
+
+  }
   
   render() {    
     return (
@@ -42,6 +46,7 @@ class App extends Component {
         <div className='Header'>
           <div>Header</div>
           <div className='Dashboard'>
+            <div>Dashboard</div>
             <span> Image URL: </span>
             <input onChange={ ( e ) => this.newPicture( e.target.value ) } value={ this.state.imageURL } />
             <span> Product Name:</span>
@@ -49,9 +54,8 @@ class App extends Component {
             <span> Price: </span>
             <input onChange={ ( e ) => this.newProdPrice( e.target.value ) } value={ this.state.price } />
 
-            <button> Cancel </button>
+            <button onClick={this.state.cancelAdd} > Cancel </button>
             <button> Add to Inventory </button>
-            <div>Dashboard</div>
             <div className='Form'>
               <div>Form</div>
               <div> Product </div>
