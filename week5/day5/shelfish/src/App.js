@@ -13,26 +13,23 @@ class App extends Component {
 
     };
   }
-
-  newPicture( value ) {
-    this.setState({ imageURL: value });
-  }
-
-  newProduct( value ) {
-    this.setState({ prodName: value });
-  }
-
-  newProdPrice( value ) {
-    this.setState({ price: value });
+  getProducts() {
+    axios.get('wr6-lecture/shelfish').then( results => {
+      this.setState({ 'prodDisplay': results.data });
+    }).catch( () => console.log.error("failed at fetching products") );
   }
 
   addProduct() {
-    const { product, name, price, imageURL } = this.state;
-
-    let newProducts = product.slice();
-    newProducts.push({ name, price, imageURL });
-
-    this.setState({ product: newProducts, name: '', price: +1 , imageURL: '' });
+    let newProduct = {
+      product_id: 19,
+      product_Name: this.prodName.value,
+      price: this.price.value,
+      image_url: this.imageURL.value
+    };
+    axios.post('wr6-lecture/shelfish', newProduct).then( results => {
+      console.log.success("HOLY CRAP, YOU DID IT!!!")
+      this.setState({ prodDisplay: results.data.products});
+    }).catch( () => console.log('failed to add new product') );
   }
 
   cancelAdd() {
@@ -48,11 +45,11 @@ class App extends Component {
           <div className='Dashboard'>
             <div>Dashboard</div>
             <span> Image URL: </span>
-            <input onChange={ ( e ) => this.newPicture( e.target.value ) } value={ this.state.imageURL } />
+            <input />
             <span> Product Name:</span>
-            <input onChange={ ( e ) => this.newProduct( e.target.value ) } value={ this.state.prodName } />
+            <input />
             <span> Price: </span>
-            <input onChange={ ( e ) => this.newProdPrice( e.target.value ) } value={ this.state.price } />
+            <input />
 
             <button onClick={this.state.cancelAdd} > Cancel </button>
             <button> Add to Inventory </button>
