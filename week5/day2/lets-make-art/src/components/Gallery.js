@@ -19,6 +19,13 @@ class Gallery extends React.Component {
             });
         });
     }
+
+    render() {
+        const mappedKits = this.state.displayAll.map((watercolor) => (
+            <Projects key={watercolor.id} watercolor={watercolor} addToProj={this.props.addToProj}/>
+        ));
+        return <ul className='projects'>{mappedKits}</ul>;
+    }
 }
 
 export default Gallery;
