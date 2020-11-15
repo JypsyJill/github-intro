@@ -1,10 +1,9 @@
 import React from 'react';
-import Picasso from "./Trial"
+import Trial from "./Trial"
 
-const Degas = (props) => {
-    console.log(props.watercolor)
-    const catalogue = props.getData.map((watercolor, index) => (
-        <Picasso
+const Timing = (props) => {
+    const catalogue = props.trial.map((watercolor, index) => (
+        <Trial
         key={`${watercolor.id}}-${index}`}
         watercolor={watercolor}
         endProject={props.endProject}
@@ -18,4 +17,4 @@ const Degas = (props) => {
     };
 
 
-export default Degas;
+export default Timing;

@@ -8,7 +8,7 @@ const Projects = (props) => {
         }}
     >
         <h1>{props.watercolor.name}</h1>
-        <h2>{props.watercolor.img}</h2>
+        {/* <h2>{props.watercolor.img}</h2> */}
     </li>
     );
 };

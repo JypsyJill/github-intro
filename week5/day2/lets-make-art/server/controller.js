@@ -9,7 +9,7 @@ module.exports = {
         if (search) {
             const myKits = gallery.filter(
                 (watercolor) =>
-                watercolor.tutorialTime()>(search())
+                watercolor.toLowerCase().includes(search.toLowerCase())
             );
             for (let i = 0; i < 25; i++) {
                 if (myKits[i] !== null) {
@@ -44,5 +44,12 @@ module.exports = {
         
         res.status(200).send(kits);
     },    
+    deleteProj: (req, res) => {
+        const { index } = req.params;
+
+        kits.splice(index, 1);
+
+        res.status(200).send(kits)
+    },
 
 };

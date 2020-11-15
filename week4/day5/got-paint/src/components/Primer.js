@@ -1,14 +1,14 @@
 import React from "react";
-import OKeefe from "./DryBrush";
+import DryBrush from "./DryBrush";
 import axios from "axios";
 
 
-class Vermeer extends React.Component {
+class Primer extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            minutesInput: "", 
+            searchInput: "", 
             artGallery: [],
         };
     }
@@ -20,34 +20,19 @@ class Vermeer extends React.Component {
         });
     }
 
-
-    handleInput = (e) => {
-        this.setState({ minutesInput: e.target.value });
-        axios
-            .get(`/api/watercolor?search=${e.target.value}`)
-            .then((res) => {
-                this.setState({ artGallery: res.data });
-            })
-            .catch((err) => console.log(err));
-    };
-
     render() {
         let curatedArt = [];
         curatedArt = this.state.artGallery.map((watercolor) => (
-            <OKeefe
+            <DryBrush
                 key={watercolor.id}
-                project={watercolor}
-                addColors={this.props.addColors}
+                watercolor={watercolor}
+                addToProj={this.props.addToProj}
             />
         ));
-    return (
-        <div>
-            <input value={this.state.minutesInput} onChange={this.handleInput} />
-            <ul className="yourList">{curatedArt}</ul>
-        </div>
-    );
+    return <ul className="yourList">{curatedArt}</ul>;
+        
     }
 }
     
-    export default Vermeer;
+    export default Primer;
     
