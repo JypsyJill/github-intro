@@ -28,4 +28,9 @@ class Gallery extends React.Component {
     }
 }
 
+
+
+
+
+
 export default Gallery;
